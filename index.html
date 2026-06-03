@@ -13,12 +13,13 @@
     <!-- Open Graph -->
     <meta property="og:title" content="寒舍·智能公寓酒店 | 保定精品智能酒店">
     <meta property="og:description" content="全屋智能联动·零甲醛环保装修·24小时AI客服·2分钟自助入住。毗邻魔立方商场与直隶眼摩天轮。">
-    <meta property="og:type" content=“网站”>
+    <meta property="og:type" content="website">
     <meta property="og:url" content="https://hanshehotel.cn/">
     <meta property="og:locale" content="zh_CN">
     <meta property="og:site_name" content="寒舍·智能公寓酒店">
+    <meta property="og:image" content="https://hanshehotel.cn/images/web/lobby.jpg">
 
-    <!-- Schema.org 结构化数据 - 酒店 -->
+    <!-- Schema.org Structured Data - Hotel -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -46,8 +47,9 @@
         "numberOfRooms": "11",
         "priceRange": "¥198-398",
         "openingHours": "Mo-Su",
-"配套设施": [
-“@type”: “LocationFeatureSpecification”, “name”: “全屋智能联动”, “value”: true},
+        "openingDate": "2026-07-01",
+        "amenityFeature": [
+            {"@type": "LocationFeatureSpecification", "name": "全屋智能联动", "value": true},
             {"@type": "LocationFeatureSpecification", "name": "24小时AI客服", "value": true},
             {"@type": "LocationFeatureSpecification", "name": "零甲醛环保装修", "value": true},
             {"@type": "LocationFeatureSpecification", "name": "自助入住", "value": true},
@@ -314,8 +316,13 @@
         .room-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
         .room-card.featured { grid-column: span 2; }
         .room-visual {
-            height: 200px; display: flex; align-items: center; justify-content: center;
-            position: relative; overflow: hidden;
+            height: 240px; display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden; background-size: cover; background-position: center;
+        }
+        .room-visual::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%);
+            z-index: 0;
         }
         .room-visual .room-name-overlay { position: relative; z-index: 1; text-align: center; }
         .room-visual .room-name-overlay .cn-name {
@@ -328,11 +335,7 @@
             position: absolute; top: 12px; right: 16px;
             font-size: 12px; color: rgba(255,255,255,0.5); letter-spacing: 1px;
         }
-        .room-visual.theme-green { background: linear-gradient(135deg, #2D5016, #4A7C2E); }
-        .room-visual.theme-blue { background: linear-gradient(135deg, #1E3A5F, #3B7DD8); }
-        .room-visual.theme-warm { background: linear-gradient(135deg, #8B6914, #C8A96E); }
-        .room-visual.theme-night { background: linear-gradient(135deg, #1A1A2E, #2D2D44); }
-        .room-visual.theme-rose { background: linear-gradient(135deg, #6B2D3E, #A8576A); }
+
         .room-info { padding: 20px; }
         .room-info .room-type {
             font-size: 12px; color: var(--primary); font-weight: 600;
@@ -530,6 +533,10 @@
                 <h2>从蓝图到「家」</h2>
                 <p>寒舍酒店的故事，始于一张CAD图纸</p>
             </div>
+            <div style="text-align:center;margin-bottom:40px;">
+                <img src="images/web/lobby.jpg" alt="寒舍酒店电梯厅前台 - 现代简约智能入住空间" style="width:100%;max-width:800px;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.1);" loading="lazy">
+                <p style="font-size:13px;color:var(--text-light);margin-top:12px;">7楼电梯厅 · 智能前台</p>
+            </div>
             <div class="story-grid">
                 <div class="story-text">
                     <h3>不是匆匆过夜的驿站，<br>而是一个能放松、充电、创造回忆的地方</h3>
@@ -571,7 +578,7 @@
             </div>
             <div class="room-grid">
                 <div class="room-card">
-                    <div class="room-visual theme-green">
+                    <div class="room-visual" style="background-image:url('images/web/705.jpg')">
                         <span class="room-number">705</span>
                         <div class="room-name-overlay">
                             <div class="cn-name">伍隐</div>
@@ -588,7 +595,7 @@
                 </div>
 
                 <div class="room-card">
-                    <div class="room-visual theme-green">
+                    <div class="room-visual" style="background-image:url('images/web/706.jpg')">
                         <span class="room-number">706</span>
                         <div class="room-name-overlay">
                             <div class="cn-name">陆鸣</div>
@@ -605,7 +612,7 @@
                 </div>
 
                 <div class="room-card">
-                    <div class="room-visual theme-green">
+                    <div class="room-visual" style="background-image:url('images/web/708.jpg')">
                         <span class="room-number">708</span>
                         <div class="room-name-overlay">
                             <div class="cn-name">捌月</div>
@@ -622,7 +629,7 @@
                 </div>
 
                 <div class="room-card">
-                    <div class="room-visual theme-warm">
+                    <div class="room-visual" style="background-image:url('images/web/711.jpg')">
                         <span class="room-number">711</span>
                         <div class="room-name-overlay">
                             <div class="cn-name">拾逸</div>
@@ -639,7 +646,7 @@
                 </div>
 
                 <div class="room-card">
-                    <div class="room-visual theme-warm">
+                    <div class="room-visual" style="background-image:url('images/web/712.jpg')">
                         <span class="room-number">712</span>
                         <div class="room-name-overlay">
                             <div class="cn-name">拾锦</div>
@@ -656,7 +663,7 @@
                 </div>
 
                 <div class="room-card">
-                    <div class="room-visual theme-blue">
+                    <div class="room-visual" style="background-image:url('images/web/702.jpg')">
                         <span class="room-number">702</span>
                         <div class="room-name-overlay">
                             <div class="cn-name">贰泉</div>
@@ -673,7 +680,7 @@
                 </div>
 
                 <div class="room-card">
-                    <div class="room-visual theme-blue">
+                    <div class="room-visual" style="background-image:url('images/web/710.jpg')">
                         <span class="room-number">710</span>
                         <div class="room-name-overlay">
                             <div class="cn-name">拾光</div>
@@ -690,7 +697,7 @@
                 </div>
 
                 <div class="room-card">
-                    <div class="room-visual theme-night">
+                    <div class="room-visual" style="background-image:url('images/web/704.jpg')">
                         <span class="room-number">704</span>
                         <div class="room-name-overlay">
                             <div class="cn-name">肆安</div>
@@ -707,7 +714,7 @@
                 </div>
 
                 <div class="room-card">
-                    <div class="room-visual theme-rose">
+                    <div class="room-visual" style="background-image:url('images/web/707.jpg')">
                         <span class="room-number">707</span>
                         <div class="room-name-overlay">
                             <div class="cn-name">柒梦</div>
@@ -724,7 +731,7 @@
                 </div>
 
                 <div class="room-card featured">
-                    <div class="room-visual theme-night">
+                    <div class="room-visual" style="background-image:url('images/web/703.jpg')">
                         <span class="room-number">703</span>
                         <div class="room-name-overlay">
                             <div class="cn-name">叁屿</div>
@@ -741,7 +748,7 @@
                 </div>
 
                 <div class="room-card featured">
-                    <div class="room-visual theme-rose">
+                    <div class="room-visual" style="background-image:url('images/web/709.jpg')">
                         <span class="room-number">709</span>
                         <div class="room-name-overlay">
                             <div class="cn-name">玖岚</div>
@@ -876,14 +883,19 @@
             </div>
             <div class="faq-list">
                 <div class="faq-item" onclick="toggleFaq(this)"><div class="question">可以在线预订吗？ <span class="toggle">+</span></div><div class="answer">可以，通过美团、携程、飞猪、电话、微信均可预订。建议提前3天预订，节假日/周末建议提前7天。</div></div>
+                <div class="faq-item" onclick="toggleFaq(this)"><div class="question">预订定金可以退吗？ <span class="toggle">+</span></div><div class="answer">提前24小时取消可全额退还，24小时内取消定金不予退还。</div></div>
+                <div class="faq-item" onclick="toggleFaq(this)"><div class="question">可以加急当天预订吗？ <span class="toggle">+</span></div><div class="answer">需看房间是否还有空余，如有空房即可当天预订，建议提前电话确认。</div></div>
                 <div class="faq-item" onclick="toggleFaq(this)"><div class="question">入住和退房时间是什么？ <span class="toggle">+</span></div><div class="answer">入住时间为14:00以后，退房时间为12:00之前。14:00前可免费延迟退房，超过14:00收取半天房费。</div></div>
-                <div class="faq-item" onclick="toggleFaq(this)"><div class="question">可以带宠物吗？ <span class="toggle">+</span></div><div class="answer">接受中小型常见宠物入住，例如中型及小型犬、猫咪等。不接受大型宠物或冷门宠物（如蛇、蜥蜴等）。</div></div>
+                <div class="faq-item" onclick="toggleFaq(this)"><div class="question">房间可以吸烟吗？ <span class="toggle">+</span></div><div class="answer">房间内禁止吸烟，尤其禁止在床上吸烟；如因吸烟造成物品损坏，需照价赔偿。</div></div>
+                <div class="faq-item" onclick="toggleFaq(this)"><div class="question">可以带宠物吗？ <span class="toggle">+</span></div><div class="answer">接受中小型常见宠物入住，例如中型及小型犬、猫咪等，不接受大型宠物或冷门宠物（如蛇、蜥蜴、虫子或无鸟笼自由飞的鸟宠等）。</div></div>
                 <div class="faq-item" onclick="toggleFaq(this)"><div class="question">房间有网络吗？ <span class="toggle">+</span></div><div class="answer">全酒店覆盖免费Wi-Fi。</div></div>
-                <div class="faq-item" onclick="toggleFaq(this)"><div class="question">押金多少钱？ <span class="toggle">+</span></div><div class="answer">押金100元，退房检查无损坏后24小时内原路退回。</div></div>
-                <div class="faq-item" onclick="toggleFaq(this)"><div class="question">有早餐吗？ <span class="toggle">+</span></div><div class="answer">本酒店是无人值守的智能公寓酒店，不提供早餐服务。但毗邻魔立方商场，步行50米可达麦当劳、瑞幸等，周边也有多家早餐店。</div></div>
-                <div class="faq-item" onclick="toggleFaq(this)"><div class="question">预订后可以取消吗？ <span class="toggle">+</span></div><div class="answer">入住前24小时可免费取消，全额退还；24小时内取消退还70%；未到（No-show）收取首晚房费。</div></div>
-                <div class="faq-item" onclick="toggleFaq(this)"><div class="question">可以开发票吗？ <span class="toggle">+</span></div><div class="answer">可以，退房时在自助入住机提供发票抬头和税号即可，或发给订房时联系的人工客服。</div></div>
+                <div class="faq-item" onclick="toggleFaq(this)"><div class="question">可以延迟退房吗？ <span class="toggle">+</span></div><div class="answer">14:00前免费延迟退房，超过14:00需收取半天房费。</div></div>
+                <div class="faq-item" onclick="toggleFaq(this)"><div class="question">提供叫醒服务吗？ <span class="toggle">+</span></div><div class="answer">本店为无人值守智能酒店，暂不提供叫醒服务，建议使用手机闹钟。</div></div>
+                <div class="faq-item" onclick="toggleFaq(this)"><div class="question">有接送服务吗？ <span class="toggle">+</span></div><div class="answer">暂无接送服务，后续可能会上线，敬请期待。</div></div>
                 <div class="faq-item" onclick="toggleFaq(this)"><div class="question">可以寄存行李吗？ <span class="toggle">+</span></div><div class="answer">无贵重物品的行李可寄存前台区域，有24小时监控摄像。如有丢失，酒店配合调阅监控，无法承担损失责任。</div></div>
+                <div class="faq-item" onclick="toggleFaq(this)"><div class="question">押金多少钱？ <span class="toggle">+</span></div><div class="answer">押金100元，退房检查无损坏后退还。</div></div>
+                <div class="faq-item" onclick="toggleFaq(this)"><div class="question">有早餐吗？ <span class="toggle">+</span></div><div class="answer">本酒店是无人值守的智能公寓酒店，不提供早餐服务。但毗邻魔立方商场，步行50米可达麦当劳、瑞幸等，周边也有多家早餐店。</div></div>
+                <div class="faq-item" onclick="toggleFaq(this)"><div class="question">可以开发票吗？ <span class="toggle">+</span></div><div class="answer">可以，退房时在自助入住机提供发票抬头和税号即可，或发给订房时联系的人工客服。</div></div>
             </div>
         </div>
     </section>
