@@ -287,6 +287,19 @@
             box-shadow: 0 8px 30px rgba(200,169,110,0.3);
         }
 
+        /* Announcement Bar */
+        .announcement-bar {
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            color: white; text-align: center; padding: 10px 24px;
+            font-size: 14px; position: relative; z-index: 1001;
+        }
+        .announcement-bar a { color: var(--accent-light); text-decoration: underline; }
+        .announce-close {
+            position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+            cursor: pointer; opacity: 0.6; font-size: 16px;
+        }
+        .announce-close:hover { opacity: 1; }
+
         /* Section Common */
         section { padding: 100px 24px; }
         .section-header { text-align: center; margin-bottom: 64px; }
@@ -487,6 +500,11 @@
             font-size: 13px; transition: color 0.2s;
         }
         footer .footer-links a:hover { color: var(--accent); }
+        footer .footer-contact {
+            display: flex; justify-content: center; gap: 32px; margin-bottom: 24px;
+            font-size: 13px; color: rgba(240,237,229,0.5); flex-wrap: wrap;
+        }
+        footer .footer-contact a { color: var(--accent-light); text-decoration: none; }
         footer .copyright { font-size: 12px; }
 
         /* Responsive */
@@ -516,6 +534,12 @@
     </style>
 </head>
 <body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar" id="announceBar">
+        🎉 寒舍·智能公寓酒店 7月即将开业 · 全场9折特惠 · 预订电话 <a href="tel:18931396987">18931396987</a>
+        <span class="announce-close" onclick="document.getElementById('announceBar').style.display='none'">✕</span>
+    </div>
 
     <!-- Navigation -->
     <nav>
@@ -947,6 +971,11 @@
     <footer>
         <div class="footer-brand">寒舍·<strong>智能公寓酒店</strong></div>
         <div class="footer-sub">Humble Stay · 让每一次停留都成为美好记忆</div>
+        <div class="footer-contact">
+            <span>📍 向阳北大街1677号向阳驿B座7楼</span>
+            <span>📞 <a href="tel:18931396987">18931396987</a></span>
+            <span>🕐 入住14:00 · 退房12:00</span>
+        </div>
         <div class="footer-links">
             <a href="#brand">品牌故事</a>
             <a href="#rooms">房型</a>
