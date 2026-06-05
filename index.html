@@ -45,7 +45,7 @@
         "checkinTime": "14:00",
         "checkoutTime": "12:00",
         "numberOfRooms": "11",
-        "priceRange": "¥198-398",
+        "priceRange": "¥178-358（开业9折）",
         "openingHours": "Mo-Su",
         "openingDate": "2026-07-01",
         "amenityFeature": [
@@ -240,8 +240,25 @@
         .hero-badge {
             display: inline-block; padding: 6px 20px; border: 1px solid var(--accent);
             border-radius: 50px; color: var(--accent); font-size: 13px;
-            letter-spacing: 3px; margin-bottom: 32px; text-transform: uppercase;
+            letter-spacing: 3px; margin-bottom: 16px; text-transform: uppercase;
         }
+        .promo-banner {
+            display: inline-block; padding: 10px 28px; border-radius: 50px;
+            background: linear-gradient(135deg, #C8A96E, #E0C992);
+            color: var(--bg-dark); font-size: 16px; font-weight: 700;
+            letter-spacing: 2px; margin-bottom: 24px; animation: pulse-glow 2s ease-in-out infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(200,169,110,0.3); }
+            50% { box-shadow: 0 0 40px rgba(200,169,110,0.6); }
+        }
+        .countdown { display: flex; justify-content: center; gap: 16px; margin-bottom: 32px; }
+        .countdown-item { text-align: center; }
+        .countdown-item .num {
+            display: block; font-size: 36px; font-weight: 700; color: var(--accent);
+            line-height: 1; min-width: 56px;
+        }
+        .countdown-item .unit { font-size: 12px; color: rgba(240,237,229,0.5); letter-spacing: 1px; }
         .hero h1 {
             font-size: 56px; font-weight: 200; color: var(--text-on-dark);
             margin-bottom: 16px; letter-spacing: 8px;
@@ -345,9 +362,25 @@
         .room-info .room-desc { font-size: 13px; color: var(--text-light); margin-bottom: 12px; line-height: 1.6; }
         .room-meta { display: flex; gap: 16px; font-size: 12px; color: var(--text-light); margin-bottom: 12px; }
         .room-meta span { display: flex; align-items: center; gap: 4px; }
-        .room-price { display: flex; align-items: baseline; gap: 4px; }
+        .room-price { display: flex; align-items: baseline; gap: 8px; }
         .room-price .amount { font-size: 24px; font-weight: 700; color: var(--primary); }
         .room-price .per { font-size: 13px; color: var(--text-light); }
+        .room-price .original { font-size: 14px; color: var(--text-light); text-decoration: line-through; }
+        .room-price .promo-tag { font-size: 11px; background: #FFF3E0; color: #E65100; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+
+        /* Floating CTA */
+        .float-cta {
+            position: fixed; bottom: 24px; right: 24px; z-index: 999;
+            display: none; /* shown on mobile */
+        }
+        .float-cta a {
+            display: flex; align-items: center; justify-content: center;
+            width: 56px; height: 56px; border-radius: 50%;
+            background: var(--primary); color: white; text-decoration: none;
+            font-size: 24px; box-shadow: 0 4px 20px rgba(45,80,22,0.4);
+            transition: transform 0.2s;
+        }
+        .float-cta a:hover { transform: scale(1.1); }
 
         /* Smart */
         .smart { background: var(--bg-dark); color: var(--text-on-dark); }
@@ -476,6 +509,8 @@
             .checkin-flow { flex-direction: column; align-items: center; }
             .checkin-arrow { transform: rotate(90deg); }
             section { padding: 60px 16px; }
+            .float-cta { display: block; }
+            .countdown-item .num { font-size: 28px; min-width: 44px; }
         }
     </style>
 </head>
@@ -501,6 +536,13 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-badge">精品智能公寓酒店</div>
+            <div class="promo-banner">🎉 即将开业 · 全场9折特惠</div>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item"><span class="num" id="cd-days">--</span><span class="unit">天</span></div>
+                <div class="countdown-item"><span class="num" id="cd-hours">--</span><span class="unit">时</span></div>
+                <div class="countdown-item"><span class="num" id="cd-mins">--</span><span class="unit">分</span></div>
+                <div class="countdown-item"><span class="num" id="cd-secs">--</span><span class="unit">秒</span></div>
+            </div>
             <h1>寒舍·<strong>智能公寓酒店</strong></h1>
             <p class="subtitle">让每一次停留都成为美好记忆</p>
             <div class="hero-features">
@@ -590,7 +632,7 @@
                         <h3>伍隐</h3>
                         <p class="room-desc">21.81㎡，渐进式布局，极致空间利用，高性价比之选</p>
                         <div class="room-meta"><span>📐 21.81㎡</span><span>🛏️ 1.8m大床</span></div>
-                        <div class="room-price"><span class="amount">¥198</span><span class="per">/晚</span></div>
+                        <div class="room-price"><span class="promo-tag">开业9折</span><span class="amount">¥178</span><span class="original">¥198</span><span class="per">/晚</span></div>
                     </div>
                 </div>
 
@@ -607,7 +649,7 @@
                         <h3>陆鸣</h3>
                         <p class="room-desc">21.81㎡，功能美学设计，独行者与情侣之选</p>
                         <div class="room-meta"><span>📐 21.81㎡</span><span>🛏️ 1.8m大床</span></div>
-                        <div class="room-price"><span class="amount">¥198</span><span class="per">/晚</span></div>
+                        <div class="room-price"><span class="promo-tag">开业9折</span><span class="amount">¥178</span><span class="original">¥198</span><span class="per">/晚</span></div>
                     </div>
                 </div>
 
@@ -624,7 +666,7 @@
                         <h3>捌月</h3>
                         <p class="room-desc">21.81㎡，与伍隐同款，功能美学设计</p>
                         <div class="room-meta"><span>📐 21.81㎡</span><span>🛏️ 1.8m大床</span></div>
-                        <div class="room-price"><span class="amount">¥198</span><span class="per">/晚</span></div>
+                        <div class="room-price"><span class="promo-tag">开业9折</span><span class="amount">¥178</span><span class="original">¥198</span><span class="per">/晚</span></div>
                     </div>
                 </div>
 
@@ -641,7 +683,7 @@
                         <h3>拾逸</h3>
                         <p class="room-desc">28.07㎡，方正布局，动静分区</p>
                         <div class="room-meta"><span>📐 28.07㎡</span><span>🛏️ 1.8m大床</span></div>
-                        <div class="room-price"><span class="amount">¥198</span><span class="per">/晚</span></div>
+                        <div class="room-price"><span class="promo-tag">开业9折</span><span class="amount">¥178</span><span class="original">¥198</span><span class="per">/晚</span></div>
                     </div>
                 </div>
 
@@ -658,7 +700,7 @@
                         <h3>拾锦</h3>
                         <p class="room-desc">25.66㎡，精致布局，智能化配置，温馨私密</p>
                         <div class="room-meta"><span>📐 25.66㎡</span><span>🛏️ 1.8m大床</span></div>
-                        <div class="room-price"><span class="amount">¥198</span><span class="per">/晚</span></div>
+                        <div class="room-price"><span class="promo-tag">开业9折</span><span class="amount">¥178</span><span class="original">¥198</span><span class="per">/晚</span></div>
                     </div>
                 </div>
 
@@ -675,7 +717,7 @@
                         <h3>贰泉</h3>
                         <p class="room-desc">37.87㎡，一室一厅套房，独立卧室与客厅，投影幕布，飘窗榻榻米</p>
                         <div class="room-meta"><span>📐 37.87㎡</span><span>🛏️ 1.8m大床</span><span>🎬 投影</span></div>
-                        <div class="room-price"><span class="amount">¥298</span><span class="per">/晚</span></div>
+                        <div class="room-price"><span class="promo-tag">开业9折</span><span class="amount">¥268</span><span class="original">¥298</span><span class="per">/晚</span></div>
                     </div>
                 </div>
 
@@ -692,7 +734,7 @@
                         <h3>拾光</h3>
                         <p class="room-desc">35.83㎡，多面采光，L型转角吧台，全景明窗，沉浸式影音</p>
                         <div class="room-meta"><span>📐 35.83㎡</span><span>🛏️ 1.8m大床</span><span>🎬 投影</span></div>
-                        <div class="room-price"><span class="amount">¥298</span><span class="per">/晚</span></div>
+                        <div class="room-price"><span class="promo-tag">开业9折</span><span class="amount">¥268</span><span class="original">¥298</span><span class="per">/晚</span></div>
                     </div>
                 </div>
 
@@ -709,7 +751,7 @@
                         <h3>肆安</h3>
                         <p class="room-desc">43.22㎡，异形斜切墙面，几何美学，双窗采光，独立起居区</p>
                         <div class="room-meta"><span>📐 43.22㎡</span><span>🛏️ 1.8m大床</span><span>🎬 投影</span></div>
-                        <div class="room-price"><span class="amount">¥298</span><span class="per">/晚</span></div>
+                        <div class="room-price"><span class="promo-tag">开业9折</span><span class="amount">¥268</span><span class="original">¥298</span><span class="per">/晚</span></div>
                     </div>
                 </div>
 
@@ -726,7 +768,7 @@
                         <h3>柒梦</h3>
                         <p class="room-desc">43.22㎡，与肆安对称布局，光影与几何共生，双窗景观</p>
                         <div class="room-meta"><span>📐 43.22㎡</span><span>🛏️ 1.8m大床</span><span>🎬 投影</span></div>
-                        <div class="room-price"><span class="amount">¥298</span><span class="per">/晚</span></div>
+                        <div class="room-price"><span class="promo-tag">开业9折</span><span class="amount">¥268</span><span class="original">¥298</span><span class="per">/晚</span></div>
                     </div>
                 </div>
 
@@ -743,7 +785,7 @@
                         <h3>叁屿</h3>
                         <p class="room-desc">50.6㎡，罕见双大床配置（两张1.8米大床），超宽幕飘窗，独立起居区。适合两个家庭、商务伙伴、两大两小</p>
                         <div class="room-meta"><span>📐 50.6㎡</span><span>🛏️ 1.8m×2双大床</span><span>🎬 投影</span></div>
-                        <div class="room-price"><span class="amount">¥398</span><span class="per">/晚</span></div>
+                        <div class="room-price"><span class="promo-tag">开业9折</span><span class="amount">¥358</span><span class="original">¥398</span><span class="per">/晚</span></div>
                     </div>
                 </div>
 
@@ -760,7 +802,7 @@
                         <h3>玖岚</h3>
                         <p class="room-desc">44.58㎡，唯一配置厨房，双床（1.8m大床+1.5m单人床），双沉浸式家庭影院，高清投影+百寸抗光幕布。适合家庭出游、朋友聚会</p>
                         <div class="room-meta"><span>📐 44.58㎡</span><span>🛏️ 1.8m+1.5m</span><span>🍳 厨房</span><span>🎬 双影院</span></div>
-                        <div class="room-price"><span class="amount">¥398</span><span class="per">/晚</span></div>
+                        <div class="room-price"><span class="promo-tag">开业9折</span><span class="amount">¥358</span><span class="original">¥398</span><span class="per">/晚</span></div>
                     </div>
                 </div>
             </div>
@@ -915,6 +957,8 @@
         <div class="copyright">© 2026 寒舍酒店 · 河北省保定市高开区向阳北大街1677号向阳驿B座7楼 · hanshehotel.cn</div>
     </footer>
 
+    <div class="float-cta"><a href="tel:18931396987" title="拨打电话">📞</a></div>
+
     <script>
         function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
         function toggleFaq(item) { item.classList.toggle('active'); }
@@ -929,6 +973,27 @@
             const nav = document.querySelector('nav');
             nav.style.boxShadow = window.scrollY > 50 ? '0 2px 20px rgba(0,0,0,0.08)' : 'none';
         });
+        // Opening countdown
+        (function() {
+            const target = new Date('2026-07-01T14:00:00+08:00').getTime();
+            function update() {
+                const now = Date.now();
+                let diff = target - now;
+                if (diff <= 0) {
+                    document.getElementById('countdown').innerHTML = '<div class="promo-banner">🎉 已盛大开业 · 欢迎入住</div>';
+                    return;
+                }
+                const d = Math.floor(diff / 86400000); diff %= 86400000;
+                const h = Math.floor(diff / 3600000); diff %= 3600000;
+                const m = Math.floor(diff / 60000); diff %= 60000;
+                const s = Math.floor(diff / 1000);
+                document.getElementById('cd-days').textContent = d;
+                document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+                document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+                document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+            }
+            update(); setInterval(update, 1000);
+        })();
     </script>
 </body>
 </html>
